@@ -14,8 +14,8 @@ Then you have several options:
 - Beginners - Deploy it on a simple Heroku server
 - Advanced - Deploy it on a cloud server (AWS, GCP, Azure) with docker containers
 
-### Deploying on Heroku
-Heroku is the most simple server provider. You can create and deploy apps for free in just a few minutes. That's what we are going to do here : 
+### Deploying on Heroku from GitHub
+Heroku is the most simple server provider. It's even more simpleYou can create and deploy apps for free in just a few minutes. That's what we are going to do here : 
 
 - Create your dash app, eg ``app.py``
 - Create a requirements file, eg ``requirements.txt``. You can use tools such as ``pipreqs``, ``pipenv`` or other environment managers to help you create the right file. 
@@ -24,4 +24,17 @@ Heroku is the most simple server provider. You can create and deploy apps for fr
 ```
 web: gunicorn app:server
 ```
--  
+- Deploy directly on Heroku from GitHub, you can follow the instructions below
+
+  - Create a new application
+![](img/deploy1.jpg)
+  - Find the right name and server region
+![](img/deploy2.jpg)
+  - Link via github, search for your repo and click on connect
+![](img/deploy3.jpg)
+  - Deploy manually by clicking on deploy and choosing the right github branch
+![](img/deploy4.jpg)
+
+  - You can even set up a CI/CD process with auto-deploys by playing with the auto-deploy section
+![](img/deploy5.jpg)
+
