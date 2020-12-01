@@ -59,3 +59,18 @@ web: gunicorn app:server
 
 If your app does not work, you can check in the logs why it failed : 
 ![](img/deploy6.jpg)
+
+
+
+### Deploying with Docker
+
+
+
+
+## Going further
+To better deploy, it's always interesting to learn more about what you are manipulating. Here, you have to know that Dash is a wrapper for other technologies put together, and in particular:
+- Flask as backend and server
+- React as frontend
+- Plotly (the python library) for most graphs
+
+If you want to be a Deployment ninja 🐱‍👤, you may find useful to learn more about Flask and webservers in general. And eventually learn about React. 
