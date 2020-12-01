@@ -24,6 +24,16 @@ Heroku is the most simple server provider. It's even more simpleYou can create a
 ```
 web: gunicorn app:server
 ```
+- As of ``2020-12-01``, Dash documentation is not totally correct when it comes to deployment on Heroku, you should correctly link the server variable in Python and the declaration in the ``Procfile`` :
+```python
+# Add following line in your app.py script
+server = app.server
+
+# Write the Procfile
+# - app refer to the file name app.py
+# - server refer to the variable name for the Flask Server 
+web: gunicorn app:server
+```
 - Deploy directly on Heroku from GitHub, you can follow the instructions below
 
   - Create a new application
@@ -38,3 +48,14 @@ web: gunicorn app:server
   - You can even set up a CI/CD process with auto-deploys by playing with the auto-deploy section
 ![](img/deploy5.jpg)
 
+  - You are all set ! Your app should be live ! 
+![](img/deploy7.jpg)
+  
+
+
+#### Problems you can encounter
+- Having your app not at the root of the repo, you can use subdir buildpack
+- Not linking correctly 
+
+If your app does not work, you can check in the logs why it failed : 
+![](img/deploy6.jpg)
