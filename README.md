@@ -60,9 +60,27 @@ web: gunicorn app:server
 If your app does not work, you can check in the logs why it failed : 
 ![](img/deploy6.jpg)
 
+#### What Heroku is doing under the hood
+Heroku does a lot for us actually. It detects the technology behind the web server pushed on Heroku (Python, Node, etc...). Looks for a Procfile with instructions on how to launch the server. And knows many things on how to set it up. 
+
+For example for Python servers, it will look first to find a ``requirements.txt`` file or ``pipenv.lock`` file. For a Node.js server it will look at the ``package.json`` and the lock file as well.  
 
 
 ### Deploying with Docker
+If you want to better master what you are deploying. You may want to use Docker. It's actually universal and you'll be able to deploy it almost anywhere. 
+https://github.com/jucyai/docker-dash/blob/master/Dockerfile
+
+```docker
+FROM python:3.9
+
+ENV DASH_DEBUG_MODE True
+COPY ./app /app
+WORKDIR /app
+RUN set -ex && \
+    pip install -r requirements.txt
+EXPOSE 8050
+CMD ["python", "app.py"]
+```
 
 
 
