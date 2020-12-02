@@ -55,7 +55,8 @@ web: gunicorn app:server
 
 #### Problems you can encounter
 - Having your app not at the root of the repo, you can use subdir buildpack
-- Not linking correctly 
+- Not linking correctly your server in the Procfile
+- Having difficulties to link with a database 
 
 If your app does not work, you can check in the logs why it failed : 
 ![](img/deploy6.jpg)
@@ -92,3 +93,8 @@ To better deploy, it's always interesting to learn more about what you are manip
 - Plotly (the python library) for most graphs
 
 If you want to be a Deployment ninja 🐱‍👤, you may find useful to learn more about Flask and webservers in general. And eventually learn about React. 
+
+### Adding databases
+What is recommended is to avoid storing your database in the same server. You should approach the problem with a "microservice" mindset, meaning that you should put your database on another server. 
+- Indeed, it means you have to do another deployment, maybe using Docker again to expose your database correctly
+- But, it also decouple your app in production with the database, allowing you for more modularity (requesting the database in other platforms) 
